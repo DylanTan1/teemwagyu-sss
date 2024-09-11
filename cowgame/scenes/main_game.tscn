@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://blg3dqwh0kukr"]
+
+[ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
+[ext_resource type="Script" path="res://scripts/time_system.gd" id="2_gc8ho"]
+[ext_resource type="Script" path="res://scripts/date_time.gd" id="3_7xfef"]
+[ext_resource type="PackedScene" uid="uid://cri1u3jjbk6n8" path="res://ui/time_ui.tscn" id="5_rbjay"]
+[ext_resource type="Script" path="res://ui/time_ui.gd" id="6_2ppgh"]
+
+[sub_resource type="Resource" id="Resource_htryv"]
+script = ExtResource("3_7xfef")
+seconds = 0
+minutes = 0
+hours = 0
+days = 0
+
+[sub_resource type="GDScript" id="GDScript_ygj84"]
+script/source = "extends Node
+
+func get_hours():
+	# Get a reference to the TimeSystem node
+	var time_system = get_node(\"/res/TimeSystem\") # Adjust the path based on your scene tree
+	print_debug(time_system)
+	# Access the date_time instance inside TimeSystem
+	var date_time = time_system.date_time
+
+	# Access the hours from the date_time object
+	print_debug(\"Hours\", date_time.hours) 
+
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="main_game" type="Node"]
+
+[node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
+position = Vector2(1, 47)
+scale = Vector2(6.55942, 6.55942)
+
+[node name="TimeSystem" type="Node" parent="."]
+script = ExtResource("2_gc8ho")
+date_time = SubResource("Resource_htryv")
+
+[node name="Node" type="Node" parent="."]
+script = SubResource("GDScript_ygj84")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeIndicator" parent="CanvasLayer" instance=ExtResource("5_rbjay")]
+offset_left = 812.0
+offset_top = 13.0
+offset_right = 874.0
+offset_bottom = 53.0
+scale = Vector2(5.2, 5.2)
+script = ExtResource("6_2ppgh")
+
+[connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
