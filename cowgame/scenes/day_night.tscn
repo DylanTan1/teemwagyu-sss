@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce45d5h80s4t"]
+
+[ext_resource type="Script" path="res://scripts/day_night.gd" id="1_jultr"]
+[ext_resource type="Script" path="res://scripts/date_time.gd" id="2_rtxg2"]
+
+[sub_resource type="Resource" id="Resource_t4mel"]
+script = ExtResource("2_rtxg2")
+seconds = 0
+minutes = 0
+hours = 5
+days = 0
+
+[sub_resource type="Resource" id="Resource_3a4ob"]
+script = ExtResource("2_rtxg2")
+seconds = 0
+minutes = 0
+hours = 19
+days = 0
+
+[node name="day_night" type="DirectionalLight2D"]
+blend_mode = 2
+script = ExtResource("1_jultr")
+day_color = Color(1, 1, 1, 1)
+night_color = Color(0.464749, 0.283493, 0.825311, 1)
+day_time = SubResource("Resource_t4mel")
+night_time = SubResource("Resource_3a4ob")
