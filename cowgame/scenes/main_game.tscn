@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://blg3dqwh0kukr"]
+[gd_scene load_steps=14 format=3 uid="uid://blg3dqwh0kukr"]
 
+[ext_resource type="Script" path="res://scripts/main_game.gd" id="1_4ofpw"]
 [ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
 [ext_resource type="Script" path="res://scripts/time_system.gd" id="2_gc8ho"]
 [ext_resource type="PackedScene" uid="uid://d6y2kg53mmhi" path="res://scenes/player.tscn" id="2_sho21"]
@@ -8,6 +9,8 @@
 [ext_resource type="Script" path="res://ui/time_ui.gd" id="6_2ppgh"]
 [ext_resource type="PackedScene" uid="uid://ce45d5h80s4t" path="res://scenes/day_night.tscn" id="6_iqqq7"]
 [ext_resource type="Script" path="res://scripts/daynight_indicator.gd" id="7_0f1sk"]
+[ext_resource type="PackedScene" uid="uid://bdrubh82lxxxr" path="res://scenes/shopkeeper.tscn" id="9_ajngw"]
+[ext_resource type="PackedScene" uid="uid://c3oyipjcpu5xo" path="res://scenes/shop.tscn" id="10_c2p3r"]
 
 [sub_resource type="Resource" id="Resource_htryv"]
 script = ExtResource("3_7xfef")
@@ -24,6 +27,7 @@ hours = 5
 days = 0
 
 [node name="main_game" type="Node"]
+script = ExtResource("1_4ofpw")
 
 [node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
 position = Vector2(1, 47)
@@ -54,6 +58,13 @@ time_system = NodePath("../TimeSystem")
 [node name="daynight_indicator" type="Node" parent="."]
 script = ExtResource("7_0f1sk")
 
+[node name="shopkeeper" parent="." instance=ExtResource("9_ajngw")]
+position = Vector2(529, 294)
+
+[node name="shop" parent="." instance=ExtResource("10_c2p3r")]
+
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]
 [connection signal="currentDayState" from="day_night" to="daynight_indicator" method="currentGameState"]
+[connection signal="area_exited" from="shopkeeper" to="Player" method="_on_shopkeeper_area_exited"]
+[connection signal="open_shop" from="shopkeeper" to="Player" method="_on_shopkeeper_open_shop"]
