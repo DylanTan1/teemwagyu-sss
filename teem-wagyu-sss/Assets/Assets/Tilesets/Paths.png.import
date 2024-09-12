@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bppfktlqcdikv"
-path="res://.godot/imported/Paths.png-18eeed501a8eeb7cd6898554f9e50611.ctex"
+path="res://.godot/imported/Paths.png-092a42738d2fff44f9ae3b9a68db1323.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Assets/Tilesets/Paths.png"
-dest_files=["res://.godot/imported/Paths.png-18eeed501a8eeb7cd6898554f9e50611.ctex"]
+source_file="res://Assets/Assets/Tilesets/Paths.png"
+dest_files=["res://.godot/imported/Paths.png-092a42738d2fff44f9ae3b9a68db1323.ctex"]
 
 [params]
 
