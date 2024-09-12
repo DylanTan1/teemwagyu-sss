@@ -2,6 +2,8 @@ class_name TimeSystem extends Node
 
 signal updated
 
+
+
 @export var date_time: DateTime
 @export var ticks_pr_second: int = 6
 

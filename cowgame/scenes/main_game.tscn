@@ -1,34 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://blg3dqwh0kukr"]
+[gd_scene load_steps=10 format=3 uid="uid://blg3dqwh0kukr"]
 
 [ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
 [ext_resource type="Script" path="res://scripts/time_system.gd" id="2_gc8ho"]
 [ext_resource type="Script" path="res://scripts/date_time.gd" id="3_7xfef"]
 [ext_resource type="PackedScene" uid="uid://cri1u3jjbk6n8" path="res://ui/time_ui.tscn" id="5_rbjay"]
 [ext_resource type="Script" path="res://ui/time_ui.gd" id="6_2ppgh"]
+[ext_resource type="PackedScene" uid="uid://ce45d5h80s4t" path="res://scenes/day_night.tscn" id="6_iqqq7"]
+[ext_resource type="Script" path="res://scripts/daynight_indicator.gd" id="7_0f1sk"]
 
 [sub_resource type="Resource" id="Resource_htryv"]
 script = ExtResource("3_7xfef")
 seconds = 0
 minutes = 0
-hours = 0
+hours = 5
 days = 0
 
-[sub_resource type="GDScript" id="GDScript_ygj84"]
-script/source = "extends Node
-
-func get_hours():
-	# Get a reference to the TimeSystem node
-	var time_system = get_node(\"/res/TimeSystem\") # Adjust the path based on your scene tree
-	print_debug(time_system)
-	# Access the date_time instance inside TimeSystem
-	var date_time = time_system.date_time
-
-	# Access the hours from the date_time object
-	print_debug(\"Hours\", date_time.hours) 
-
-func _process(delta: float) -> void:
-	pass
-"
+[sub_resource type="Resource" id="Resource_2unld"]
+script = ExtResource("3_7xfef")
+seconds = 0
+minutes = 0
+hours = 5
+days = 0
 
 [node name="main_game" type="Node"]
 
@@ -39,9 +31,7 @@ scale = Vector2(6.55942, 6.55942)
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
 date_time = SubResource("Resource_htryv")
-
-[node name="Node" type="Node" parent="."]
-script = SubResource("GDScript_ygj84")
+ticks_pr_second = 6000
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -53,4 +43,13 @@ offset_bottom = 53.0
 scale = Vector2(5.2, 5.2)
 script = ExtResource("6_2ppgh")
 
+[node name="day_night" parent="." node_paths=PackedStringArray("time_system") instance=ExtResource("6_iqqq7")]
+day_time = SubResource("Resource_2unld")
+time_system = NodePath("../TimeSystem")
+
+[node name="daynight_indicator" type="Node" parent="."]
+script = ExtResource("7_0f1sk")
+
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
+[connection signal="updated" from="TimeSystem" to="day_night" method="update"]
+[connection signal="currentDayState" from="day_night" to="daynight_indicator" method="currentGameState"]
