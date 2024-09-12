@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdrubh82lxxxr"]
 
-[ext_resource type="Script" path="res://scripts/shopkeeper.gd" id="1_e3lc4"]
-[ext_resource type="Texture2D" uid="uid://cn88g5ig0jhcb" path="res://assets/person.png" id="2_e2wum"]
-[ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="3_aot37"]
+[ext_resource type="Script" path="res://Scripts/shopkeeper.gd" id="1_e3lc4"]
+[ext_resource type="Texture2D" uid="uid://0flrot5hrf4a" path="res://Assets/Assets/person.png" id="2_e2wum"]
+[ext_resource type="Script" path="res://Scripts/canvas_layer.gd" id="3_aot37"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgj6s"]
 radius = 49.0

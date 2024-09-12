@@ -43,6 +43,10 @@ func lose_health(health: int) -> void:
 func get_input():
 	var input_direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	velocity = input_direction * speed
+	
+func _physics_process(delta):
+	get_input()
+	move_and_slide()
 
 #if player is near shopkeeper, can open shop
 func _input(event):
@@ -62,3 +66,4 @@ func _on_shopkeeper_area_exited():
 	print("closeshop")
 	is_near_shopkeeper = false
 	
+

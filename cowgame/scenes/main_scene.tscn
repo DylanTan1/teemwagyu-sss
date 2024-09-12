@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://blwl52advk8nd"]
+
+[ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_4ofpw"]
+[ext_resource type="PackedScene" uid="uid://dvgolkb42qmuw" path="res://Scenes/player.tscn" id="8_wqn4b"]
+[ext_resource type="PackedScene" uid="uid://bdrubh82lxxxr" path="res://Scenes/shopkeeper.tscn" id="9_ajngw"]
+[ext_resource type="PackedScene" uid="uid://c3oyipjcpu5xo" path="res://Scenes/shop.tscn" id="10_c2p3r"]
+
+[node name="Main Scene" type="Node2D"]
+script = ExtResource("1_4ofpw")
+
+[node name="Player" parent="." instance=ExtResource("8_wqn4b")]
+position = Vector2(530, 391)
+
+[node name="shopkeeper" parent="." instance=ExtResource("9_ajngw")]
+position = Vector2(529, 294)
+
+[node name="shop" parent="." instance=ExtResource("10_c2p3r")]
+
+[connection signal="area_exited" from="shopkeeper" to="Player" method="_on_shopkeeper_area_exited"]
+[connection signal="open_shop" from="shopkeeper" to="Player" method="_on_shopkeeper_open_shop"]
