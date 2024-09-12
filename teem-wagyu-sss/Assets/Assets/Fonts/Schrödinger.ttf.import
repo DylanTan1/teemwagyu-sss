@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://do6g4q03tl1gj"
-path="res://.godot/imported/Schrödinger.ttf-31919a10ba04f65aa02c3a0bbb3a8456.fontdata"
+path="res://.godot/imported/Schrödinger.ttf-937a89e56cfff7a13a9f448da67130e6.fontdata"
 
 [deps]
 
-source_file="res://Assets/Assets/Fonts/Schrödinger.ttf"
-dest_files=["res://.godot/imported/Schrödinger.ttf-31919a10ba04f65aa02c3a0bbb3a8456.fontdata"]
+source_file="res://assets/Assets/Fonts/Schrödinger.ttf"
+dest_files=["res://.godot/imported/Schrödinger.ttf-937a89e56cfff7a13a9f448da67130e6.fontdata"]
 
 [params]
 

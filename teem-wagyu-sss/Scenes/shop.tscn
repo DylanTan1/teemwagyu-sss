@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3oyipjcpu5xo"]
 
-[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_y00sf"]
-[ext_resource type="Texture2D" uid="uid://cpsjaebpas6w4" path="res://Assets/Assets/Icons/icon1.png" id="2_itw3i"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_y00sf"]
+[ext_resource type="Texture2D" uid="uid://cpsjaebpas6w4" path="res://assets/Assets/Icons/icon1.png" id="2_itw3i"]
 
 [sub_resource type="Animation" id="Animation_4hqlb"]
 length = 0.001
