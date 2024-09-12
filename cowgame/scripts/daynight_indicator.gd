@@ -4,6 +4,8 @@ extends Node
 func currentGameState(currentState):
 	
 	if currentState == 0:
-		print_debug("It's day time!")
+		pass
+		#print_debug("It's day time!")
 	else :
-		print_debug("It's night time!")
+		pass
+		#print_debug("It's night time!")
