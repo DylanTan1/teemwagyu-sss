@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://blg3dqwh0kukr"]
+[gd_scene load_steps=9 format=3 uid="uid://blg3dqwh0kukr"]
 
 [ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
 [ext_resource type="Script" path="res://scripts/time_system.gd" id="2_gc8ho"]
+[ext_resource type="PackedScene" uid="uid://d6y2kg53mmhi" path="res://scenes/player.tscn" id="2_sho21"]
 [ext_resource type="Script" path="res://scripts/date_time.gd" id="3_7xfef"]
 [ext_resource type="PackedScene" uid="uid://cri1u3jjbk6n8" path="res://ui/time_ui.tscn" id="5_rbjay"]
 [ext_resource type="Script" path="res://ui/time_ui.gd" id="6_2ppgh"]
@@ -27,6 +28,9 @@ days = 0
 [node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
 position = Vector2(1, 47)
 scale = Vector2(6.55942, 6.55942)
+
+[node name="Player" parent="." instance=ExtResource("2_sho21")]
+position = Vector2(594, 346)
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
