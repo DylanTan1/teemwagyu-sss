@@ -44,11 +44,13 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.567748, 0.567748)
 script = ExtResource("1_384x8")
 speed = 350.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
+scale = Vector2(0.685831, 0.685831)
 shape = SubResource("CircleShape2D_qvjn4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -57,6 +59,7 @@ scale = Vector2(1.5625, 1.5625)
 sprite_frames = SubResource("SpriteFrames_pcei3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+scale = Vector2(6.5126, 2.77663)
+zoom = Vector2(3, 3)
 
 [node name="gun" parent="." instance=ExtResource("3_nqlt3")]

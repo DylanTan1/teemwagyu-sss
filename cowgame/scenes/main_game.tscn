@@ -29,11 +29,11 @@ days = 0
 [node name="main_game" type="Node"]
 
 [node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
-position = Vector2(1, 47)
-scale = Vector2(6.55942, 6.55942)
+position = Vector2(-0.999999, 1)
+scale = Vector2(0.410027, 0.403202)
 
 [node name="Player" parent="." instance=ExtResource("2_sho21")]
-position = Vector2(594, 346)
+position = Vector2(363, 221)
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
@@ -58,11 +58,12 @@ time_system = NodePath("../TimeSystem")
 script = ExtResource("7_0f1sk")
 
 [node name="shopkeeper" parent="." instance=ExtResource("9_h44bl")]
-position = Vector2(591, 261)
+position = Vector2(536, 277)
 
 [node name="shop" parent="." instance=ExtResource("10_m4two")]
 
 [node name="BaseEnemy" parent="." instance=ExtResource("11_52000")]
+position = Vector2(322, 219)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]
