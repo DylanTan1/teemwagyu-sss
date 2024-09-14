@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+#spawns and move to designated place when day starts
 #interactable by player
 signal open_shop
 signal area_exited
@@ -12,7 +14,7 @@ var is_shopkeeper_exist = 1
 #spawns and move to designated place when day starts
 func _ready():
 	#pass
-	position = Vector2(1222,711)
+	position = Vector2(1222, 711)
 
 func _process(delta):
 	pass
@@ -47,28 +49,3 @@ func _on_area_2d_body_exited(body):
 		print("Player exit the shopkeeper")
 		$shopkeeper_text.hide_shopkeeper_message()
 		emit_signal("area_exited")
-
-
-func _on_day_night_current_day_state(currentState):
-	if currentState == 0:
-		is_shopkeeper_out = 0
-
-		#
-		##var new_shopkeeper = load("res://scenes/shopkeeper.tscn")
-		##add_child(new_shopkeeper)
-		##new_shopkeeper.position = Vector2(539,279)
-		#const BULLET = preload("res://scenes/bullet.tscn")
-		#var new_bullet = BULLET.instantiate()
-		##position of the created bullet
-		#new_bullet.global_position = %shooting_point.global_position
-		##rotation of the created bullet
-		#new_bullet.global_rotation = %shooting_point.global_rotation
-		#print("It's day time!")
-		#visible = true
-		#$AnimationPlayer.play("ShopkeeperAnimOpen")
-	else:
-		is_shopkeeper_out = 1
-		#print("It's night time!")
-		#$AnimationPlayer.play("ShopkeeperAnimClose")
-		#if position == Vector2(539,279):
-			#visible = true

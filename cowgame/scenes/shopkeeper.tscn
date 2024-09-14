@@ -1,42 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://d17l87lx172u4"]
+[gd_scene load_steps=7 format=3 uid="uid://d17l87lx172u4"]
 
 [ext_resource type="Script" path="res://scripts/shopkeeper.gd" id="1_fxx1t"]
-[ext_resource type="Texture2D" uid="uid://bykrnlsjto6bt" path="res://assets/Gamejam 2024 Cow.png" id="2_6hxwr"]
-[ext_resource type="Script" path="res://scripts/shopkeeper_text.gd" id="3_osww4"]
+[ext_resource type="Texture2D" uid="uid://cg6lsmu2f0us1" path="res://icon.svg" id="2_q1mbh"]
+[ext_resource type="Script" path="res://shopkeeper_text.gd" id="3_osww4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rmacj"]
 radius = 53.0377
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a7v22"]
-atlas = ExtResource("2_6hxwr")
-region = Rect2(0, 0, 24, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtmfp"]
-atlas = ExtResource("2_6hxwr")
-region = Rect2(24, 0, 24, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t7vg6"]
-atlas = ExtResource("2_6hxwr")
-region = Rect2(48, 0, 24, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwmiw"]
-atlas = ExtResource("2_6hxwr")
-region = Rect2(72, 0, 24, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jkxup"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a7v22")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wtmfp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t7vg6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uwmiw")
+"texture": ExtResource("2_q1mbh")
 }],
 "loop": true,
 "name": &"default",
@@ -45,62 +20,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1q6y8"]
 radius = 8.0
-
-[sub_resource type="Animation" id="Animation_g4w70"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_iif1f"]
-resource_name = "ShopkeeperAnimClose"
-length = 30.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(539, 293), Vector2(539, 279)]
-}
-
-[sub_resource type="Animation" id="Animation_xd58u"]
-resource_name = "ShopkeeperAnimOpen"
-length = 30.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(539, 279), Vector2(539, 293)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fw6tv"]
-_data = {
-"RESET": SubResource("Animation_g4w70"),
-"ShopkeeperAnimClose": SubResource("Animation_iif1f"),
-"ShopkeeperAnimOpen": SubResource("Animation_xd58u")
-}
 
 [node name="shopkeeper" type="CharacterBody2D"]
 scale = Vector2(1.14575, 1.14575)
@@ -113,6 +32,7 @@ shape = SubResource("CircleShape2D_rmacj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.38419e-07, 1)
+scale = Vector2(0.238281, 0.105469)
 sprite_frames = SubResource("SpriteFrames_jkxup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -122,19 +42,10 @@ shape = SubResource("CircleShape2D_1q6y8")
 script = ExtResource("3_osww4")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -141.353
-offset_top = -84.8117
-offset_right = 93.6472
-offset_bottom = -61.8117
-scale = Vector2(1.20312, 1.20312)
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_fw6tv")
-}
-playback_auto_capture = false
+offset_left = -20.0
+offset_top = -35.0
+offset_right = 20.0
+offset_bottom = -12.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
