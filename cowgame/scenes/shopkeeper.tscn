@@ -103,7 +103,7 @@ _data = {
 }
 
 [node name="shopkeeper" type="CharacterBody2D"]
-scale = Vector2(0.56596, 0.56596)
+scale = Vector2(1.14575, 1.14575)
 script = ExtResource("1_fxx1t")
 
 [node name="Area2D" type="Area2D" parent="."]
