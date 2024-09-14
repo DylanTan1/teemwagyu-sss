@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://be8nk1jrgdqgo"]
+
+[sub_resource type="GDScript" id="GDScript_ay3ii"]
+script/source = "extends Node2D
+
+@onready var main = get_node(\"/root/main_game\")
+
+var enemyScene := preload(\"res://scenes/base_enemy.tscn\")
+
+var spawnPoints := []
+
+func _ready():
+	for i in get_children():
+		if i is Marker2D:
+			spawnPoints.append(i)
+			print_debug(\"points\", spawnPoints[i])
+	
+
+
+
+
+func _on_timer_timeout() -> void:
+	var spawn = spawnPoints[randi() % spawnPoints.size()]
+	
+	var enemy = enemyScene.instantiate()
+	enemy.position = spawn.position
+	
+	#print_debug(\"enemypostion\", enemy.position)
+	
+	main.add_child(enemy)
+	
+"
+
+[node name="Spawner" type="Node2D"]
+script = SubResource("GDScript_ay3ii")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(48, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(102, 0)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

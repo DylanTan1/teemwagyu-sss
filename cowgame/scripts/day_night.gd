@@ -8,6 +8,7 @@ extends DirectionalLight2D
 @export var time_system: TimeSystem
 
 signal currentDayState
+signal isNightTime
 
 var in_transition: bool = false
 
@@ -41,6 +42,10 @@ func update(game_time: DateTime) -> void:
 	var time_diff = change_time.diff_without_days(game_time)
 	var test_state = current_state
 	currentDayState.emit(test_state) #test emit day/night states
+	
+	#emit signal when it's night time
+	
+	isNightTime.emit(current_state)
 	
 	if in_transition:
 		update_transition(time_diff, next_state)

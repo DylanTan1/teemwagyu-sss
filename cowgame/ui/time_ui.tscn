@@ -18,8 +18,18 @@ offset_bottom = 40.0
 
 [node name="ClockCounter" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1.0
+offset_top = 15.0
+offset_right = 69.0
+offset_bottom = 38.0
+
+[node name="Days" type="Label" parent="ClockCounter"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -19.0
+offset_right = 77.0
+offset_bottom = 4.0
+text = "0"
 
 [node name="Hours" type="Label" parent="ClockCounter"]
 layout_mode = 0
@@ -40,3 +50,23 @@ offset_left = 45.0
 offset_right = 68.0
 offset_bottom = 23.0
 text = "59"
+
+[node name="dot1" type="Label" parent="ClockCounter"]
+offset_left = 19.0
+offset_top = -1.0
+offset_right = 53.0
+offset_bottom = 22.0
+text = ":"
+
+[node name="dot2" type="Label" parent="ClockCounter"]
+offset_left = 41.0
+offset_top = -1.0
+offset_right = 75.0
+offset_bottom = 22.0
+text = ":"
+
+[node name="dot3" type="Label" parent="ClockCounter"]
+offset_top = -20.0
+offset_right = 42.0
+offset_bottom = 3.0
+text = "Day :"
