@@ -57,6 +57,6 @@ scale = Vector2(1.5625, 1.5625)
 sprite_frames = SubResource("SpriteFrames_pcei3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
-[node name="gun" parent="." instance=ExtResource("3_nqlt3")]
+[node name="Handgun" parent="." instance=ExtResource("3_nqlt3")]

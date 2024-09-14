@@ -1,8 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://buy2nwh0efe2s"]
+[gd_scene load_steps=9 format=3 uid="uid://buy2nwh0efe2s"]
 
 [ext_resource type="Script" path="res://scripts/base_enemy.gd" id="1_g0bd7"]
+[ext_resource type="Texture2D" uid="uid://bykrnlsjto6bt" path="res://assets/Gamejam 2024 Cow.png" id="2_u1ogp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rl7ae"]
+radius = 72.5603
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25wmf"]
+atlas = ExtResource("2_u1ogp")
+region = Rect2(0, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ul1x"]
+atlas = ExtResource("2_u1ogp")
+region = Rect2(24, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcik3"]
+atlas = ExtResource("2_u1ogp")
+region = Rect2(48, 0, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wsf4"]
+atlas = ExtResource("2_u1ogp")
+region = Rect2(72, 0, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xs4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25wmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ul1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcik3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wsf4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BaseEnemy" type="CharacterBody2D"]
+scale = Vector2(0.324121, 0.324121)
 script = ExtResource("1_g0bd7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.529371, 0.542194)
+shape = SubResource("CircleShape2D_rl7ae")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4.91514, 4.91514)
+sprite_frames = SubResource("SpriteFrames_2xs4i")
