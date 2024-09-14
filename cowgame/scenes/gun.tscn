@@ -36,3 +36,6 @@ sprite_frames = SubResource("SpriteFrames_dorua")
 [node name="shooting_point" type="Marker2D" parent="pivot/gun"]
 unique_name_in_owner = true
 position = Vector2(4, 1)
+
+[node name="cooldown_timer" type="Timer" parent="."]
+one_shot = true

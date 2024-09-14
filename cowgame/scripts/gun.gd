@@ -21,3 +21,5 @@ func shoot():
 	new_bullet.global_rotation = %shooting_point.global_rotation
 	#creates a child node bullet into the starting point
 	%shooting_point.add_child(new_bullet)
+	#firerate cd starts
+	$cooldown_timer.start(2)

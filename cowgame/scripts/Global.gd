@@ -4,10 +4,10 @@ var gold = 10000
 
 var items = {
 	0: {
-		"Name": "Handgun",
-		"Desc": "This is an Handgun",
+		"Name": "Potion",
+		"Desc": "Add an additional heart",
 		"Cost": 10,
-		"Count": 1
+		"Count": 100
 	},
 	1: {
 		"Name": "Dual Pistols",
