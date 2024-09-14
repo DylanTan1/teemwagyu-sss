@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v1ds1j6reny1"
-path="res://.godot/imported/Gamejam 2024 Goldcoins.png-0e498d809a4e0c223fbbef65b6511454.ctex"
+uid="uid://cqmfng4qxbc30"
+path="res://.godot/imported/tornadopixel.png-617fef812f6dd45dd7dfcd0ec6176ade.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Gamejam 2024 Goldcoins.png"
-dest_files=["res://.godot/imported/Gamejam 2024 Goldcoins.png-0e498d809a4e0c223fbbef65b6511454.ctex"]
+source_file="res://assets/tornadopixel.png"
+dest_files=["res://.godot/imported/tornadopixel.png-617fef812f6dd45dd7dfcd0ec6176ade.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://blg3dqwh0kukr"]
+[gd_scene load_steps=16 format=3 uid="uid://blg3dqwh0kukr"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_ksj3h"]
 [ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
@@ -27,18 +27,49 @@ minutes = 0
 hours = 5
 days = 0
 
+[sub_resource type="GDScript" id="GDScript_ay3ii"]
+script/source = "extends Node2D
+
+@onready var main = get_node(\"/root/main_game\")
+
+var enemyScene := preload(\"res://scenes/base_enemy.tscn\")
+
+var spawnPoints := []
+
+func _ready():
+	for i in get_children():
+		if i is Marker2D:
+			spawnPoints.append(i)
+			print_debug(\"points\", spawnPoints[i])
+	
+
+
+
+
+func _on_timer_timeout() -> void:
+	var spawn = spawnPoints[randi() % spawnPoints.size()]
+	
+	var enemy = enemyScene.instantiate()
+	enemy.position = spawn.position
+	
+	#print_debug(\"enemypostion\", enemy.position)
+	
+	main.add_child(enemy)
+	
+"
+
 [node name="main_game" type="Node"]
 
 [node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
 position = Vector2(1, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_sho21")]
-position = Vector2(985, 551)
+position = Vector2(594, 346)
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
 date_time = SubResource("Resource_htryv")
-ticks_pr_second = 600
+ticks_pr_second = 6000
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -56,6 +87,10 @@ time_system = NodePath("../TimeSystem")
 
 [node name="daynight_indicator" type="Node" parent="."]
 script = ExtResource("7_0f1sk")
+
+[node name="shopkeeper" parent="." instance=ExtResource("9_h44bl")]
+position = Vector2(591, 261)
+script = SubResource("GDScript_ay3ii")
 
 [node name="shop" parent="." instance=ExtResource("10_m4two")]
 
@@ -80,12 +115,8 @@ position = Vector2(2082, 815)
 [node name="Timer" type="Timer" parent="Spawner"]
 autostart = true
 
-[node name="shopkeeper" parent="." instance=ExtResource("9_h44bl")]
-
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]
 [connection signal="currentDayState" from="day_night" to="daynight_indicator" method="currentGameState"]
 [connection signal="currentDayState" from="day_night" to="Spawner" method="nightTime"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
-[connection signal="area_exited" from="shopkeeper" to="Player" method="_on_shopkeeper_area_exited"]
-[connection signal="open_shop" from="shopkeeper" to="Player" method="_on_shopkeeper_open_shop"]

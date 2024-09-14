@@ -9,9 +9,6 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
-	
-	if is_lose:
-		get_tree().reload_current_scene()
 
 #shoot gun
 	if Input.is_action_pressed("shoot") and $"gun/cooldown_timer".is_stopped():
@@ -41,14 +38,13 @@ func lose_health(health: int) -> void:
 		is_lose = true
 
 #if player is near shopkeeper, can open shop
+#TODO FIX THIS PLS
 func _input(event):
 	if event.is_action_pressed("interact") and is_near_shopkeeper == true:
 		print("Opening shop...")
 		get_tree().paused = true
 		$"../shop/anim_shop".play("trans_in")
 		$"../shopkeeper/shopkeeper_text".hide_shopkeeper_message()
-
-
 
 #check if near shopkeeper
 var is_near_shopkeeper = false
@@ -59,7 +55,5 @@ func _on_shopkeeper_area_exited():
 	print("closeshop")
 	is_near_shopkeeper = false
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("deal_damage"):
-		print(body.deal_damage())
-		lose_health(body.deal_damage())
+
+	

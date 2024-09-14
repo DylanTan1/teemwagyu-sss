@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2g1p7jvu0wa"
-path="res://.godot/imported/Gamejam 2024 Potions.png-9ffb80b3130b8c4746cb49aa0297b94f.ctex"
+uid="uid://dardtpo567xhd"
+path="res://.godot/imported/tornadopixel.png-83eb6e2381108c8879034282c072c491.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Gamejam 2024 Potions.png"
-dest_files=["res://.godot/imported/Gamejam 2024 Potions.png-9ffb80b3130b8c4746cb49aa0297b94f.ctex"]
+source_file="res://scenes/tornadopixel.png"
+dest_files=["res://.godot/imported/tornadopixel.png-83eb6e2381108c8879034282c072c491.ctex"]
 
 [params]
 

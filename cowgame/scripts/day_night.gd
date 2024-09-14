@@ -10,6 +10,7 @@ extends DirectionalLight2D
 signal currentDayState
 signal isNightTime
 
+
 var in_transition: bool = false
 
 enum DayState{DAY, NIGHT}
@@ -46,6 +47,8 @@ func update(game_time: DateTime) -> void:
 	#emit signal when it's night time
 	
 	isNightTime.emit(current_state)
+	
+	
 	
 	if in_transition:
 		update_transition(time_diff, next_state)
