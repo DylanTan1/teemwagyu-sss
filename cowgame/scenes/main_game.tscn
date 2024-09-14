@@ -1,6 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://blg3dqwh0kukr"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_ksj3h"]
+
 [ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
 [ext_resource type="Script" path="res://scripts/time_system.gd" id="2_gc8ho"]
 [ext_resource type="PackedScene" uid="uid://d6y2kg53mmhi" path="res://scenes/player.tscn" id="2_sho21"]
@@ -59,13 +60,14 @@ func _on_timer_timeout() -> void:
 "
 
 [node name="main_game" type="Node"]
+script = ExtResource("1_6560x")
 
 [node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
-
 position = Vector2(1, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_sho21")]
 position = Vector2(3124, 2002)
+
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
@@ -93,9 +95,11 @@ script = ExtResource("7_0f1sk")
 position = Vector2(591, 261)
 script = SubResource("GDScript_ay3ii")
 
+
 [node name="shop" parent="." instance=ExtResource("10_m4two")]
 
 [node name="BaseEnemy" parent="." instance=ExtResource("11_52000")]
+position = Vector2(322, 219)
 
 visible = false
 
@@ -120,6 +124,11 @@ autostart = true
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]
+[connection signal="currentDayState" from="day_night" to="." method="_on_day_night_current_day_state"]
 [connection signal="currentDayState" from="day_night" to="daynight_indicator" method="currentGameState"]
+[connection signal="currentDayState" from="day_night" to="shopkeeper" method="_on_day_night_current_day_state"]
+[connection signal="area_exited" from="shopkeeper" to="Player" method="_on_shopkeeper_area_exited"]
+[connection signal="open_shop" from="shopkeeper" to="Player" method="_on_shopkeeper_open_shop"]
 [connection signal="currentDayState" from="day_night" to="Spawner" method="nightTime"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+

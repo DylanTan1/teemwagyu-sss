@@ -59,8 +59,8 @@ func _on_shopkeeper_area_exited():
 	print("closeshop")
 	is_near_shopkeeper = false
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("deal_damage"):
 		print(body.deal_damage())
 		lose_health(body.deal_damage())
+

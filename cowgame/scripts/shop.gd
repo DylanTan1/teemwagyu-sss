@@ -4,6 +4,7 @@ var current_item = 0
 
 #display 1st item
 func _ready():
+	$Control/anim_shop_sprite.play(Global.items[current_item]["Name"])
 	$Control/item_name_label.text = Global.items[current_item]["Name"]
 	$Control/item_desc_label.text = Global.items[current_item]["Desc"] + "\n Cost: " + str(Global.items[current_item]["Cost"])
 
@@ -14,8 +15,6 @@ func switch_items(select):
 			if select == i:
 	#			TODO refine this part by adding a var to Global.items[current_item]
 				current_item = select
-				print(select)
-	#			TODO attach sprite to anim_shop_sprite
 				$Control/anim_shop_sprite.play(Global.items[current_item]["Name"])
 				$Control/item_name_label.text = Global.items[current_item]["Name"]
 				$Control/item_desc_label.text = Global.items[current_item]["Desc"] + "\n Cost: " + str(Global.items[current_item]["Cost"])
@@ -32,16 +31,16 @@ func _on_shop_buy_button_pressed():
 	if Global.gold >= Global.items[current_item]["Cost"]:
 #deduct gold
 		Global.gold -= Global.items[current_item]["Cost"]
-		print(current_item)
-		print(Global.items, " ", Global.gold)
-		
 #remove from shop
 		print(Global.items, " ", Global.gold)
 		#TODO remove bought item from shop: 1. make count 0 then if try to buy will say sold out
 		#or remove from list (i tried this and it caused some wanky bugs so im not gonna bother for now)
 #add to inventory
-		Global.inventory[Global.inventory.size()] = Global.items[current_item]
-		print(Global.inventory)
+	if Global.items[current_item]["Name"] == "Potion":
+		$"../Player".gain_health(1)
+		print($"../Player".current_health)
+	else:
+		Global.inventory["Gun"] = Global.items[current_item]
 
 #close shop
 func _on_close_shop_pressed():
