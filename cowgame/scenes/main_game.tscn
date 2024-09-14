@@ -69,7 +69,7 @@ position = Vector2(594, 346)
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
 date_time = SubResource("Resource_htryv")
-ticks_pr_second = 600
+ticks_pr_second = 6000
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
