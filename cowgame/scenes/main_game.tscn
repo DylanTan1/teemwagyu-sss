@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://blg3dqwh0kukr"]
+[gd_scene load_steps=14 format=3 uid="uid://blg3dqwh0kukr"]
 
 [ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
 [ext_resource type="Script" path="res://scripts/time_system.gd" id="2_gc8ho"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/daynight_indicator.gd" id="7_0f1sk"]
 [ext_resource type="PackedScene" uid="uid://d17l87lx172u4" path="res://scenes/shopkeeper.tscn" id="9_h44bl"]
 [ext_resource type="PackedScene" uid="uid://dypocwi3xeert" path="res://scenes/shop.tscn" id="10_m4two"]
+[ext_resource type="PackedScene" uid="uid://buy2nwh0efe2s" path="res://scenes/base_enemy.tscn" id="11_52000"]
 
 [sub_resource type="Resource" id="Resource_htryv"]
 script = ExtResource("3_7xfef")
@@ -60,6 +61,8 @@ script = ExtResource("7_0f1sk")
 position = Vector2(591, 261)
 
 [node name="shop" parent="." instance=ExtResource("10_m4two")]
+
+[node name="BaseEnemy" parent="." instance=ExtResource("11_52000")]
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]
