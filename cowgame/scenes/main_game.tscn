@@ -61,10 +61,11 @@ func _on_timer_timeout() -> void:
 [node name="main_game" type="Node"]
 
 [node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
+
 position = Vector2(1, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_sho21")]
-position = Vector2(594, 346)
+position = Vector2(3124, 2002)
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
@@ -95,6 +96,7 @@ script = SubResource("GDScript_ay3ii")
 [node name="shop" parent="." instance=ExtResource("10_m4two")]
 
 [node name="BaseEnemy" parent="." instance=ExtResource("11_52000")]
+
 visible = false
 
 [node name="Spawner" type="Node2D" parent="."]
@@ -114,6 +116,7 @@ position = Vector2(2082, 815)
 
 [node name="Timer" type="Timer" parent="Spawner"]
 autostart = true
+
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]
