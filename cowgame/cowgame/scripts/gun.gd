@@ -1,8 +1,6 @@
 extends Area2D
 
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$pivot/gun.play("banana")
@@ -15,6 +13,13 @@ func _process(delta):
 		$pivot/gun.play("pistol")
 	elif Global.inventory["Gun"]["Name"] == "Machine Gun":
 		$pivot/gun.play("machine_gun")
+#flip sprite if the mouse pointing the other way
+	var rotation_degrees = abs(fmod($pivot.global_rotation_degrees,360)) 
+	if rotation_degrees > 90 and rotation_degrees < 270 :
+		$pivot/gun.flip_v = true
+	else: 
+		$pivot/gun.flip_v = false
+
 
 func shoot():
 	var firerate = Global.inventory["Gun"]["Firerate"]
