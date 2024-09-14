@@ -4,6 +4,7 @@ var current_item = 0
 
 #display 1st item
 func _ready():
+	$Control/anim_shop_sprite.play(Global.items[current_item]["Name"])
 	$Control/item_name_label.text = Global.items[current_item]["Name"]
 	$Control/item_desc_label.text = Global.items[current_item]["Desc"] + "\n Cost: " + str(Global.items[current_item]["Cost"])
 
@@ -14,8 +15,6 @@ func switch_items(select):
 			if select == i:
 	#			TODO refine this part by adding a var to Global.items[current_item]
 				current_item = select
-				print(select)
-	#			TODO attach sprite to anim_shop_sprite
 				$Control/anim_shop_sprite.play(Global.items[current_item]["Name"])
 				$Control/item_name_label.text = Global.items[current_item]["Name"]
 				$Control/item_desc_label.text = Global.items[current_item]["Desc"] + "\n Cost: " + str(Global.items[current_item]["Cost"])

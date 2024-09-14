@@ -54,6 +54,3 @@ func _on_shopkeeper_open_shop():
 func _on_shopkeeper_area_exited():
 	print("closeshop")
 	is_near_shopkeeper = false
-
-
-	

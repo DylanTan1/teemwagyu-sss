@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(0.567748, 0.567748)
+scale = Vector2(0.475354, 0.475354)
 script = ExtResource("1_384x8")
 speed = 350.0
 
@@ -60,6 +60,6 @@ sprite_frames = SubResource("SpriteFrames_pcei3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(6.5126, 2.77663)
-zoom = Vector2(3, 3)
+zoom = Vector2(5, 5)
 
 [node name="gun" parent="." instance=ExtResource("3_nqlt3")]
