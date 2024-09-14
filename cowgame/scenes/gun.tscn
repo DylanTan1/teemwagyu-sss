@@ -1,18 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr71rdlhtvatt"]
+[gd_scene load_steps=6 format=3 uid="uid://dr71rdlhtvatt"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_ibirw"]
 [ext_resource type="Texture2D" uid="uid://c6udppj8txigv" path="res://assets/Gamejam 2024 Weapon Pack.png" id="1_qiyed"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bejnd"]
 radius = 70.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5gfpi"]
-atlas = ExtResource("1_qiyed")
-region = Rect2(192, 112, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_och6w"]
-atlas = ExtResource("1_qiyed")
-region = Rect2(0, 80, 31, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8mp3"]
 atlas = ExtResource("1_qiyed")
@@ -22,26 +14,10 @@ region = Rect2(0, 112, 13, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5gfpi")
-}],
-"loop": true,
-"name": &"banana",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_och6w")
-}],
-"loop": true,
-"name": &"machine_gun",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_e8mp3")
 }],
 "loop": true,
-"name": &"pistol",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -54,9 +30,8 @@ shape = SubResource("CircleShape2D_bejnd")
 [node name="pivot" type="Marker2D" parent="."]
 
 [node name="gun" type="AnimatedSprite2D" parent="pivot"]
-position = Vector2(25, -1)
+position = Vector2(25, -14)
 sprite_frames = SubResource("SpriteFrames_dorua")
-animation = &"pistol"
 
 [node name="shooting_point" type="Marker2D" parent="pivot/gun"]
 unique_name_in_owner = true
