@@ -54,7 +54,7 @@ shape = SubResource("CircleShape2D_bejnd")
 [node name="pivot" type="Marker2D" parent="."]
 
 [node name="gun" type="AnimatedSprite2D" parent="pivot"]
-position = Vector2(25, -1)
+position = Vector2(26, -1)
 sprite_frames = SubResource("SpriteFrames_dorua")
 animation = &"pistol"
 
