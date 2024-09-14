@@ -55,12 +55,5 @@ func _on_shopkeeper_area_exited():
 	print("closeshop")
 	is_near_shopkeeper = false
 
-<<<<<<< HEAD:cowgame/scripts/player.gd
 
 	
-=======
-func _on_body_entered(body: Node2D) -> void:
-	if body.has_method("deal_damage"):
-		print(body.deal_damage())
-		lose_health(body.deal_damage())
->>>>>>> 0463401804ce1ea890a0e9570ac5ba28a78ba41a:cowgame/cowgame/scripts/player.gd
