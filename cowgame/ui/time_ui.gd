@@ -1,6 +1,6 @@
 extends Control
 
-
+@onready var days_label: Label = $ClockCounter/Days
 @onready var hours_label: Label = $ClockCounter/Hours
 @onready var minutes_label: Label = $ClockCounter/Minutes
 @onready var seconds_label: Label = $ClockCounter/Seconds
@@ -11,6 +11,7 @@ func _on_time_system_updated(date_time: DateTime) -> void:
 	update_label(hours_label, date_time.hours)
 	update_label(minutes_label, date_time.minutes)
 	update_label(seconds_label, date_time.seconds)
+	update_label(days_label, date_time.days)
 	
 
 func add_leading_zero(label: Label, value: int) -> void:
