@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d17l87lx172u4" path="res://scenes/shopkeeper.tscn" id="9_h44bl"]
 [ext_resource type="PackedScene" uid="uid://dypocwi3xeert" path="res://scenes/shop.tscn" id="10_m4two"]
 [ext_resource type="PackedScene" uid="uid://buy2nwh0efe2s" path="res://scenes/base_enemy.tscn" id="11_52000"]
+[ext_resource type="PackedScene" uid="uid://bk6td58vt7dw8" path="res://scenes/spawner.tscn" id="13_og7gv"]
 
 [sub_resource type="Resource" id="Resource_htryv"]
 script = ExtResource("3_7xfef")
@@ -27,50 +28,19 @@ minutes = 0
 hours = 5
 days = 0
 
-[sub_resource type="GDScript" id="GDScript_ay3ii"]
-script/source = "extends Node2D
-
-@onready var main = get_node(\"/root/main_game\")
-
-var enemyScene := preload(\"res://scenes/base_enemy.tscn\")
-
-var spawnPoints := []
-
-func _ready():
-	for i in get_children():
-		if i is Marker2D:
-			spawnPoints.append(i)
-			print_debug(\"points\", spawnPoints[i])
-	
-
-
-
-
-func _on_timer_timeout() -> void:
-	var spawn = spawnPoints[randi() % spawnPoints.size()]
-	
-	var enemy = enemyScene.instantiate()
-	enemy.position = spawn.position
-	
-	#print_debug(\"enemypostion\", enemy.position)
-	
-	main.add_child(enemy)
-	
-"
-
 [node name="main_game" type="Node"]
 
 [node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
-
-position = Vector2(1, 1)
+position = Vector2(1, 47)
+scale = Vector2(6.55942, 6.55942)
 
 [node name="Player" parent="." instance=ExtResource("2_sho21")]
-position = Vector2(3124, 2002)
+position = Vector2(594, 346)
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
 date_time = SubResource("Resource_htryv")
-ticks_pr_second = 600
+ticks_pr_second = 6000
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -91,35 +61,15 @@ script = ExtResource("7_0f1sk")
 
 [node name="shopkeeper" parent="." instance=ExtResource("9_h44bl")]
 position = Vector2(591, 261)
-script = SubResource("GDScript_ay3ii")
+script = ExtResource("1_ksj3h")
 
 [node name="shop" parent="." instance=ExtResource("10_m4two")]
 
 [node name="BaseEnemy" parent="." instance=ExtResource("11_52000")]
 
-visible = false
-
-[node name="Spawner" type="Node2D" parent="."]
-script = ExtResource("1_ksj3h")
-
-[node name="headSpawn" type="Marker2D" parent="Spawner"]
-position = Vector2(571, 408)
-
-[node name="frontLegSpawn" type="Marker2D" parent="Spawner"]
-position = Vector2(940, 1197)
-
-[node name="backLegSpawn" type="Marker2D" parent="Spawner"]
-position = Vector2(1725, 1217)
-
-[node name="tailSpawn" type="Marker2D" parent="Spawner"]
-position = Vector2(2082, 815)
-
-[node name="Timer" type="Timer" parent="Spawner"]
-autostart = true
-
+[node name="Spawner" parent="." instance=ExtResource("13_og7gv")]
+position = Vector2(175, 362)
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]
 [connection signal="currentDayState" from="day_night" to="daynight_indicator" method="currentGameState"]
-[connection signal="currentDayState" from="day_night" to="Spawner" method="nightTime"]
-[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
