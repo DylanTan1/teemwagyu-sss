@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://blg3dqwh0kukr"]
+[gd_scene load_steps=21 format=3 uid="uid://blg3dqwh0kukr"]
 
 [ext_resource type="Script" path="res://scenes/main_game.gd" id="1_av1im"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_ksj3h"]
@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://d17l87lx172u4" path="res://scenes/shopkeeper.tscn" id="9_h44bl"]
 [ext_resource type="PackedScene" uid="uid://dypocwi3xeert" path="res://scenes/shop.tscn" id="10_m4two"]
 [ext_resource type="PackedScene" uid="uid://buy2nwh0efe2s" path="res://scenes/base_enemy.tscn" id="11_52000"]
-[ext_resource type="PackedScene" uid="uid://cm3fukyd5rkfx" path="res://ui/gold_ui.tscn" id="15_ftvsy"]
 [ext_resource type="AudioStream" uid="uid://raevu3e5n2ay" path="res://audio/2016_ Clement Panchout_ Life is full of Joy.wav" id="13_a6i68"]
 [ext_resource type="AudioStream" uid="uid://bqyol07vjifuk" path="res://audio/Clement Panchout _ Revenge.wav" id="14_uvkje"]
 [ext_resource type="AudioStream" uid="uid://cp7ubdw6vpb0y" path="res://audio/Wind Blowing Sound Effect.wav" id="15_36jq7"]
+[ext_resource type="PackedScene" uid="uid://cm3fukyd5rkfx" path="res://ui/gold_ui.tscn" id="15_ftvsy"]
 
 [sub_resource type="Resource" id="Resource_htryv"]
 script = ExtResource("3_7xfef")
@@ -89,13 +89,17 @@ autostart = true
 [node name="shopkeeper" parent="." instance=ExtResource("9_h44bl")]
 
 [node name="goldUi" parent="." instance=ExtResource("15_ftvsy")]
+
 [node name="daySong" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1303, 665)
 stream = ExtResource("13_a6i68")
 
 [node name="nightSong" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1308, 667)
 stream = ExtResource("14_uvkje")
 
 [node name="windBlow" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1300, 665)
 stream = ExtResource("15_36jq7")
 volume_db = 4.088
 

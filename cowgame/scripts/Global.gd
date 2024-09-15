@@ -12,14 +12,14 @@ var items = {
 	1: {
 		"Name": "Pistol",
 		"Desc": "Standard issue pistol",
-		"Cost": 75,
+		"Cost": 25,
 		"Firerate": 0.5,
 		"Count": 1
 	},
 	2: {
 		"Name": "Machine Gun",
 		"Desc": "Ratatata~",
-		"Cost": 75,
+		"Cost": 35,
 		"Firerate": 0.15,
 		"Count": 1
 	}

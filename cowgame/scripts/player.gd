@@ -45,7 +45,7 @@ func lose_health(health: int) -> void:
 
 #TODO implement game start over
 func on_death():
-	pass
+	get_tree().change_scene_to_file("res://scenes/game_end.tscn")
 
 #if player is near shopkeeper, can open shop
 func _input(event):

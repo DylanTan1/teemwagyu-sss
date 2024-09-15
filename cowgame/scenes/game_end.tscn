@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://y2dpbg7jr5ml"]
+
+[ext_resource type="Script" path="res://scripts/game_end.gd" id="1_h6ne8"]
+
+[node name="game_end" type="Node2D"]
+script = ExtResource("1_h6ne8")
+
+[node name="start" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 392.0
+offset_right = 704.0
+offset_bottom = 440.0
+text = "Play Again"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 448.0
+offset_top = 464.0
+offset_right = 704.0
+offset_bottom = 504.0
+text = "Quit"
+
+[node name="Game Over" type="Label" parent="."]
+offset_left = 304.0
+offset_top = 192.0
+offset_right = 11159.0
+offset_bottom = 2916.0
+scale = Vector2(0.05, 0.05)
+theme_override_font_sizes/font_size = 2000
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
