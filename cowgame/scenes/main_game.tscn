@@ -64,7 +64,7 @@ func _on_timer_timeout() -> void:
 position = Vector2(1, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_sho21")]
-position = Vector2(594, 346)
+position = Vector2(1085, 798)
 
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("2_gc8ho")
@@ -89,7 +89,7 @@ time_system = NodePath("../TimeSystem")
 script = ExtResource("7_0f1sk")
 
 [node name="shopkeeper" parent="." instance=ExtResource("9_h44bl")]
-position = Vector2(591, 261)
+position = Vector2(1461, 807)
 script = SubResource("GDScript_ay3ii")
 
 [node name="shop" parent="." instance=ExtResource("10_m4two")]

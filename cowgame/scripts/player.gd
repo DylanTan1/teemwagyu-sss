@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var speed: float = 500
 @export var max_health: int = 100
 @export var current_health: int = 5
-var is_lose: bool
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -35,10 +34,13 @@ func gain_health(health: int) -> void:
 func lose_health(health: int) -> void:
 	current_health = max(0, current_health - health)
 	if current_health < 1:
-		is_lose = true
+		on_death()
+
+#TODO implement game start over
+func on_death():
+	pass
 
 #if player is near shopkeeper, can open shop
-#TODO FIX THIS PLS
 func _input(event):
 	if event.is_action_pressed("interact") and is_near_shopkeeper == true:
 		print("Opening shop...")
@@ -55,5 +57,10 @@ func _on_shopkeeper_area_exited():
 	print("closeshop")
 	is_near_shopkeeper = false
 
+#Collision with enemy
 
-	
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	print("hit")
+	if body.has_method("deal_damage"):
+		lose_health(body.deal_damage())

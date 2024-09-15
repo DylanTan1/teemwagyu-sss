@@ -1,11 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d6y2kg53mmhi"]
+[gd_scene load_steps=11 format=3 uid="uid://d6y2kg53mmhi"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_384x8"]
 [ext_resource type="Texture2D" uid="uid://bykrnlsjto6bt" path="res://assets/Gamejam 2024 Cow.png" id="2_tc1ya"]
 [ext_resource type="PackedScene" uid="uid://dr71rdlhtvatt" path="res://scenes/gun.tscn" id="3_nqlt3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvjn4"]
-radius = 15.5081
+radius = 13.5093
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tne2"]
 atlas = ExtResource("2_tc1ya")
@@ -43,9 +43,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b8jr"]
+radius = 17.1172
+
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
+collision_mask = 6
+platform_floor_layers = 4294901760
 script = ExtResource("1_384x8")
 speed = 350.0
 
@@ -62,3 +65,11 @@ sprite_frames = SubResource("SpriteFrames_pcei3")
 zoom = Vector2(2, 2)
 
 [node name="gun" parent="." instance=ExtResource("3_nqlt3")]
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_7b8jr")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
