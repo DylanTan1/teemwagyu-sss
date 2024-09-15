@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://blg3dqwh0kukr"]
+[gd_scene load_steps=18 format=3 uid="uid://blg3dqwh0kukr"]
 
+[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_av1im"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_ksj3h"]
 [ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
 [ext_resource type="Script" path="res://scripts/time_system.gd" id="2_gc8ho"]
@@ -9,9 +10,11 @@
 [ext_resource type="Script" path="res://ui/time_ui.gd" id="6_2ppgh"]
 [ext_resource type="PackedScene" uid="uid://ce45d5h80s4t" path="res://scenes/day_night.tscn" id="6_iqqq7"]
 [ext_resource type="Script" path="res://scripts/daynight_indicator.gd" id="7_0f1sk"]
+[ext_resource type="PackedScene" uid="uid://dj41ykikmflrf" path="res://ui/hearts_container.tscn" id="7_k4bkm"]
 [ext_resource type="PackedScene" uid="uid://d17l87lx172u4" path="res://scenes/shopkeeper.tscn" id="9_h44bl"]
 [ext_resource type="PackedScene" uid="uid://dypocwi3xeert" path="res://scenes/shop.tscn" id="10_m4two"]
 [ext_resource type="PackedScene" uid="uid://buy2nwh0efe2s" path="res://scenes/base_enemy.tscn" id="11_52000"]
+[ext_resource type="PackedScene" uid="uid://cm3fukyd5rkfx" path="res://ui/gold_ui.tscn" id="15_ftvsy"]
 
 [sub_resource type="Resource" id="Resource_htryv"]
 script = ExtResource("3_7xfef")
@@ -28,6 +31,7 @@ hours = 5
 days = 0
 
 [node name="main_game" type="Node"]
+script = ExtResource("1_av1im")
 
 [node name="base_level" parent="." instance=ExtResource("1_ls7u1")]
 position = Vector2(1, 1)
@@ -49,6 +53,8 @@ offset_right = 874.0
 offset_bottom = 53.0
 scale = Vector2(5.2, 5.2)
 script = ExtResource("6_2ppgh")
+
+[node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("7_k4bkm")]
 
 [node name="day_night" parent="." node_paths=PackedStringArray("time_system") instance=ExtResource("6_iqqq7")]
 day_time = SubResource("Resource_2unld")
@@ -81,6 +87,8 @@ position = Vector2(2082, 815)
 autostart = true
 
 [node name="shopkeeper" parent="." instance=ExtResource("9_h44bl")]
+
+[node name="goldUi" parent="." instance=ExtResource("15_ftvsy")]
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var current_item = 0
+signal playerHealthChanged
 
 #display 1st item
 func _ready():
@@ -39,6 +40,7 @@ func _on_shop_buy_button_pressed():
 	if Global.items[current_item]["Name"] == "Potion":
 		$"../Player".gain_health(1)
 		print($"../Player".current_health)
+		playerHealthChanged.emit($"../Player".current_health)
 	else:
 		Global.inventory["Gun"] = Global.items[current_item]
 

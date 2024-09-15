@@ -1,6 +1,6 @@
 extends Node
 
-var gold = 10000
+var gold = 10
 
 var items = {
 	0: {
@@ -30,7 +30,7 @@ var inventory = {
 		"Name": "Banana",
 		"Desc": "Standard issue... banana?",
 		"Cost": 75,
-		"Firerate": 1,
+		"Firerate": 0.75,
 		"Count": 1
 	}
 }

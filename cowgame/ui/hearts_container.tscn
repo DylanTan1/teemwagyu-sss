@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj41ykikmflrf"]
+
+[ext_resource type="Script" path="res://ui/hearts_container.gd" id="1_5ygf6"]
+
+[node name="heartsContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.24023, 3.24023)
+theme_override_constants/separation = 4
+script = ExtResource("1_5ygf6")

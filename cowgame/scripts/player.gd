@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+signal healthChanged
+
 @export var speed: float = 500
-@export var max_health: int = 100
+@export var max_health: int = 5
 @export var current_health: int = 5
 var is_lose: bool
 
@@ -37,6 +39,7 @@ func gain_health(health: int) -> void:
 # Call this when losing health
 func lose_health(health: int) -> void:
 	current_health = max(0, current_health - health)
+	print(current_health)
 	if current_health < 1:
 		on_death()
 
@@ -62,9 +65,8 @@ func _on_shopkeeper_area_exited():
 	is_near_shopkeeper = false
 
 #Collision with enemy
-
-
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	print("hit")
 	if body.has_method("deal_damage"):
 		lose_health(body.deal_damage())
+		healthChanged.emit(current_health)

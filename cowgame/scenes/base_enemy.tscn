@@ -1,41 +1,41 @@
 [gd_scene load_steps=9 format=3 uid="uid://buy2nwh0efe2s"]
 
 [ext_resource type="Script" path="res://scripts/base_enemy.gd" id="1_g0bd7"]
-[ext_resource type="Texture2D" uid="uid://bykrnlsjto6bt" path="res://assets/Gamejam 2024 Cow.png" id="2_u1ogp"]
+[ext_resource type="Texture2D" uid="uid://da7a60awik7ew" path="res://assets/cow-mob.png" id="2_o6ql8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rl7ae"]
 radius = 75.9797
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_25wmf"]
-atlas = ExtResource("2_u1ogp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaw3i"]
+atlas = ExtResource("2_o6ql8")
 region = Rect2(0, 0, 24, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ul1x"]
-atlas = ExtResource("2_u1ogp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik3bs"]
+atlas = ExtResource("2_o6ql8")
 region = Rect2(24, 0, 24, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kcik3"]
-atlas = ExtResource("2_u1ogp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1qex"]
+atlas = ExtResource("2_o6ql8")
 region = Rect2(48, 0, 24, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6wsf4"]
-atlas = ExtResource("2_u1ogp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_em2i6"]
+atlas = ExtResource("2_o6ql8")
 region = Rect2(72, 0, 24, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2xs4i"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_kiys6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_25wmf")
+"texture": SubResource("AtlasTexture_vaw3i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7ul1x")
+"texture": SubResource("AtlasTexture_ik3bs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kcik3")
+"texture": SubResource("AtlasTexture_s1qex")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6wsf4")
+"texture": SubResource("AtlasTexture_em2i6")
 }],
 "loop": true,
 "name": &"default",
@@ -55,7 +55,7 @@ shape = SubResource("CircleShape2D_rl7ae")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4.91514, 4.91514)
-sprite_frames = SubResource("SpriteFrames_2xs4i")
+sprite_frames = SubResource("SpriteFrames_kiys6")
 
 [node name="gold_spawn_point" type="Marker2D" parent="."]
 unique_name_in_owner = true
