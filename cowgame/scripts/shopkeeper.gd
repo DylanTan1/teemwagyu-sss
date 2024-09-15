@@ -32,7 +32,6 @@ func _process(delta):
 		#if position < Vector2(1318,695):
 			#queue_free()
 
-
 #if player enters shopkeeper radius
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
@@ -47,7 +46,6 @@ func _on_area_2d_body_exited(body):
 		print("Player exit the shopkeeper")
 		$shopkeeper_text.hide_shopkeeper_message()
 		emit_signal("area_exited")
-
 
 func _on_day_night_current_day_state(currentState):
 	if currentState == 0:

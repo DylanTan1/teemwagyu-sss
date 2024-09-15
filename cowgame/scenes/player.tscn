@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bykrnlsjto6bt" path="res://assets/Gamejam 2024 Cow.png" id="2_tc1ya"]
 [ext_resource type="PackedScene" uid="uid://dr71rdlhtvatt" path="res://scenes/gun.tscn" id="3_nqlt3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fjj28"]
-radius = 15.51
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvjn4"]
+radius = 13.5093
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6tne2"]
 atlas = ExtResource("2_tc1ya")
@@ -43,22 +43,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7ogba"]
-radius = 15.51
+[sub_resource type="CircleShape2D" id="CircleShape2D_7b8jr"]
+radius = 17.1172
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 22
-platform_on_leave = 2
+collision_mask = 6
 platform_floor_layers = 4294901760
 script = ExtResource("1_384x8")
 speed = 350.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
-collision_mask = 6
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_fjj28")
+shape = SubResource("CircleShape2D_qvjn4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, 0)
@@ -70,7 +66,10 @@ zoom = Vector2(2, 2)
 
 [node name="gun" parent="." instance=ExtResource("3_nqlt3")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_7ogba")
+[node name="hitbox" type="Area2D" parent="."]
+collision_mask = 2
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_7b8jr")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

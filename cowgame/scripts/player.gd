@@ -38,7 +38,11 @@ func gain_health(health: int) -> void:
 func lose_health(health: int) -> void:
 	current_health = max(0, current_health - health)
 	if current_health < 1:
-		is_lose = true
+		on_death()
+
+#TODO implement game start over
+func on_death():
+	pass
 
 #if player is near shopkeeper, can open shop
 func _input(event):
@@ -47,8 +51,6 @@ func _input(event):
 		get_tree().paused = true
 		$"../shop/anim_shop".play("trans_in")
 		$"../shopkeeper/shopkeeper_text".hide_shopkeeper_message()
-
-
 
 #check if near shopkeeper
 var is_near_shopkeeper = false
@@ -59,7 +61,10 @@ func _on_shopkeeper_area_exited():
 	print("closeshop")
 	is_near_shopkeeper = false
 
-func _on_body_entered(body: Node2D) -> void:
+#Collision with enemy
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	print("hit")
 	if body.has_method("deal_damage"):
-		print(body.deal_damage())
 		lose_health(body.deal_damage())
