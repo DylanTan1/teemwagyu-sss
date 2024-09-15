@@ -67,7 +67,7 @@ func _on_shopkeeper_area_exited():
 
 #Collision with enemy
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	$playerdeath.play()
 	if body.has_method("deal_damage"):
+		$playerdeath.play()
 		lose_health(body.deal_damage())
 		healthChanged.emit(current_health)
