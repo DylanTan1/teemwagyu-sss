@@ -10,17 +10,27 @@ var items = {
 		"Count": 100
 	},
 	1: {
-		"Name": "Dual Pistols",
-		"Desc": "This is an Apple",
-		"Cost": 20,
+		"Name": "Pistol",
+		"Desc": "Standard issue pistol",
+		"Cost": 75,
+		"Firerate": 0.5,
 		"Count": 1
 	},
 	2: {
 		"Name": "Machine Gun",
-		"Desc": "This is an Apple",
+		"Desc": "Ratatata~",
 		"Cost": 75,
+		"Firerate": 0.15,
 		"Count": 1
 	}
 }
 
-var inventory = {}
+var inventory = {
+	"Gun":{
+		"Name": "Banana",
+		"Desc": "Standard issue... banana?",
+		"Cost": 75,
+		"Firerate": 1,
+		"Count": 1
+	}
+}

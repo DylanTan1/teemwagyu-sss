@@ -20,7 +20,6 @@ var tornadoGenerated = false
 var globalTornadoes = []
 var tornadoesDestroyed = false
 
-
 func _ready():
 	for i in get_children():
 		if i is Marker2D:
