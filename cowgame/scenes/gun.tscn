@@ -47,7 +47,6 @@ animations = [{
 }]
 
 [node name="gun" type="Area2D"]
-audio_bus_name = &""
 script = ExtResource("1_ibirw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
