@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cqmfng4qxbc30" path="res://assets/tornadopixel.png" id="1_otmox"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uyks"]
-radius = 7.81413
+radius = 8.98627
 height = 40.2749
 
 [node name="Tornado" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -3)

@@ -1,75 +1,78 @@
 [gd_scene format=3 uid="uid://cri1u3jjbk6n8"]
 
-[node name="TimeIndicator" type="Control"]
+[node name="TimeIndicator" type="CanvasLayer"]
+
+[node name="Background" type="NinePatchRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DayCounter" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Background" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DayCounter" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ClockCounter" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 1.0
-offset_top = 15.0
-offset_right = 69.0
-offset_bottom = 38.0
+[node name="ClockCounter" type="CanvasLayer" parent="."]
 
 [node name="Days" type="Label" parent="ClockCounter"]
-layout_mode = 0
-offset_left = 43.0
-offset_top = -19.0
-offset_right = 77.0
-offset_bottom = 4.0
+offset_left = 1068.0
+offset_top = 4.0
+offset_right = 1102.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 50
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="Hours" type="Label" parent="ClockCounter"]
-layout_mode = 0
-offset_right = 22.0
-offset_bottom = 23.0
+offset_left = 940.0
+offset_top = 58.0
+offset_right = 997.0
+offset_bottom = 127.0
+theme_override_font_sizes/font_size = 50
 text = "23"
+metadata/_edit_use_anchors_ = true
 
 [node name="Minutes" type="Label" parent="ClockCounter"]
-layout_mode = 0
-offset_left = 23.0
-offset_right = 46.0
-offset_bottom = 23.0
+offset_left = 1016.0
+offset_top = 58.0
+offset_right = 1073.0
+offset_bottom = 127.0
+theme_override_font_sizes/font_size = 50
 text = "59"
+metadata/_edit_use_anchors_ = true
 
 [node name="Seconds" type="Label" parent="ClockCounter"]
-layout_mode = 0
-offset_left = 45.0
-offset_right = 68.0
-offset_bottom = 23.0
+offset_left = 1088.0
+offset_top = 58.0
+offset_right = 1145.0
+offset_bottom = 127.0
+theme_override_font_sizes/font_size = 50
 text = "59"
+metadata/_edit_use_anchors_ = true
 
 [node name="dot1" type="Label" parent="ClockCounter"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = -1.0
-offset_right = 53.0
-offset_bottom = 22.0
+offset_left = 1001.0
+offset_top = 57.0
+offset_right = 1035.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 50
 text = ":"
+metadata/_edit_use_anchors_ = true
 
 [node name="dot2" type="Label" parent="ClockCounter"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = -1.0
-offset_right = 75.0
-offset_bottom = 22.0
+offset_left = 1073.0
+offset_top = 57.0
+offset_right = 1107.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 50
 text = ":"
+metadata/_edit_use_anchors_ = true
 
 [node name="dot3" type="Label" parent="ClockCounter"]
-layout_mode = 0
-offset_top = -20.0
-offset_right = 42.0
-offset_bottom = 3.0
+offset_left = 939.0
+offset_top = 2.0
+offset_right = 1058.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 50
 text = "Day :"
+metadata/_edit_use_anchors_ = true

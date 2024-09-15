@@ -6,6 +6,10 @@ extends Node2D
 
 @onready var spawner = get_node("/root/main_game/Spawner")
 
+@onready var daySong = get_node("/root/main_game/daySong")
+@onready var nightSong = get_node("/root/main_game/nightSong")
+@onready var windBlow = get_node("/root/main_game/windBlow")
+
 var enemyScene := preload("res://scenes/base_enemy.tscn")
 var tornadoScene := preload("res://scenes/tornado.tscn")
 var spawnPoints := []
@@ -19,8 +23,10 @@ var currentTotal = 0
 var tornadoGenerated = false
 var globalTornadoes = []
 var tornadoesDestroyed = false
+var songPlaying = false
 
 func _ready():
+	daySong.play()
 	for i in get_children():
 		if i is Marker2D:
 			spawnPoints.append(i)
@@ -29,16 +35,22 @@ func _ready():
 
 func nightTime(currentState):
 	
+	
 	if currentState == 1:
 		isNight = true
 		
 		if previousState != currentState:
 			currentLevel += 1
 			print_debug("Current Level: ", currentLevel)
+			
+			 
 			previousState = currentState
 		
 	elif currentState == 0:
 		isNight = false
+		
+		
+			
 		previousState = 0
 		
 
@@ -55,10 +67,19 @@ func _process(delta: float) -> void:
 		spawnEnemies(delta, spawnTotal)
 		var playerPos = player.position
 		if tornadoGenerated == false:
+			daySong.stop()
+			nightSong.play()
+			windBlow.play()
 			spawn_tornadoes_around_player(playerPos)
 			tornadoesDestroyed = false
+		
+		
+		
 	
 	if isNight == false and tornadoGenerated == true and tornadoesDestroyed == false:
+		nightSong.stop()
+		windBlow.stop()
+		daySong.play()
 		destroyTornado(globalTornadoes)
 		tornadoesDestroyed = true
 		currentTotal = 0
@@ -72,7 +93,7 @@ func spawnEnemies(delta, spawnTotal):
 			var enemy = enemyScene.instantiate()
 			enemy.position = spawn.position
 			currentTotal += 1
-			#print_debug("enemy spawn!", currentTotal)
+			#print_debug("number of cows: ", currentTotal)
 			main.add_child(enemy)
 		else:
 			pass
