@@ -12,25 +12,25 @@ var is_shopkeeper_exist = 1
 #spawns and move to designated place when day starts
 func _ready():
 	#pass
-	position = Vector2(1318,695)
+	position = Vector2(1318,726)
 
 func _process(delta):
 	pass
-	if is_shopkeeper_out == 0:
-		print(is_shopkeeper_out)
-		var direction = Vector2(0,1)
-		position += direction * speed * delta
-		travelled_distance += speed * delta
-		if position > Vector2(1318,723):
-			speed = 0
-	else:
-		var direction = Vector2(0,-1)
-		speed = 20
-		print(is_shopkeeper_out, travelled_distance)
-		position += direction * speed * delta
-		travelled_distance += speed * delta
-		#if position < Vector2(1318,695):
-			#queue_free()
+	#if is_shopkeeper_out == 0:
+		#print(is_shopkeeper_out)
+		#var direction = Vector2(0,1)
+		#position += direction * speed * delta
+		#travelled_distance += speed * delta
+		#if position > Vector2(1318,723):
+			#speed = 0
+	#else:
+		#var direction = Vector2(0,-1)
+		#speed = 20
+		#print(is_shopkeeper_out, travelled_distance)
+		#position += direction * speed * delta
+		#travelled_distance += speed * delta
+		##if position < Vector2(1318,695):
+			##queue_free()
 
 #if player enters shopkeeper radius
 func _on_area_2d_body_entered(body):
