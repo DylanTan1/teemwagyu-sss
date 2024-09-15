@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://blg3dqwh0kukr"]
+[gd_scene load_steps=18 format=3 uid="uid://blg3dqwh0kukr"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_ksj3h"]
 [ext_resource type="PackedScene" uid="uid://cmyptxyc8gixb" path="res://scenes/base_level.tscn" id="1_ls7u1"]
@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://d17l87lx172u4" path="res://scenes/shopkeeper.tscn" id="9_h44bl"]
 [ext_resource type="PackedScene" uid="uid://dypocwi3xeert" path="res://scenes/shop.tscn" id="10_m4two"]
 [ext_resource type="PackedScene" uid="uid://buy2nwh0efe2s" path="res://scenes/base_enemy.tscn" id="11_52000"]
+[ext_resource type="AudioStream" uid="uid://raevu3e5n2ay" path="res://audio/2016_ Clement Panchout_ Life is full of Joy.wav" id="13_a6i68"]
+[ext_resource type="AudioStream" uid="uid://bqyol07vjifuk" path="res://audio/Clement Panchout _ Revenge.wav" id="14_uvkje"]
+[ext_resource type="AudioStream" uid="uid://cp7ubdw6vpb0y" path="res://audio/Wind Blowing Sound Effect.wav" id="15_36jq7"]
 
 [sub_resource type="Resource" id="Resource_htryv"]
 script = ExtResource("3_7xfef")
@@ -43,11 +46,8 @@ ticks_pr_second = 6000
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TimeIndicator" parent="CanvasLayer" instance=ExtResource("5_rbjay")]
-offset_left = 812.0
-offset_top = 13.0
-offset_right = 874.0
-offset_bottom = 53.0
 scale = Vector2(5.2, 5.2)
+transform = Transform2D(5.2, 0, 0, 5.2, 0, 0)
 script = ExtResource("6_2ppgh")
 
 [node name="day_night" parent="." node_paths=PackedStringArray("time_system") instance=ExtResource("6_iqqq7")]
@@ -81,6 +81,16 @@ position = Vector2(2082, 815)
 autostart = true
 
 [node name="shopkeeper" parent="." instance=ExtResource("9_h44bl")]
+
+[node name="daySong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_a6i68")
+
+[node name="nightSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_uvkje")
+
+[node name="windBlow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_36jq7")
+volume_db = 4.088
 
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/TimeIndicator" method="_on_time_system_updated"]
 [connection signal="updated" from="TimeSystem" to="day_night" method="update"]
