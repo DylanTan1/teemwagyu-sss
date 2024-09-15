@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d6y2kg53mmhi"]
+[gd_scene load_steps=12 format=3 uid="uid://d6y2kg53mmhi"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_384x8"]
 [ext_resource type="Texture2D" uid="uid://bykrnlsjto6bt" path="res://assets/Gamejam 2024 Cow.png" id="2_tc1ya"]
 [ext_resource type="PackedScene" uid="uid://dr71rdlhtvatt" path="res://scenes/gun.tscn" id="3_nqlt3"]
+[ext_resource type="AudioStream" uid="uid://gl1cuvi7bdrt" path="res://audio/audio-editor-output (2).mp3" id="4_80fmg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvjn4"]
 radius = 13.5093
@@ -69,8 +70,12 @@ zoom = Vector2(2, 2)
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_mask = 2
+audio_bus_name = &""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("CircleShape2D_7b8jr")
+
+[node name="playerdeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_80fmg")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

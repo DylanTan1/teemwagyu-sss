@@ -107,6 +107,7 @@ scale = Vector2(1.14575, 1.14575)
 script = ExtResource("1_fxx1t")
 
 [node name="Area2D" type="Area2D" parent="."]
+audio_bus_name = &""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_rmacj")

@@ -1,6 +1,6 @@
 extends Node
 
-var gold = 10
+var gold = 100
 
 var items = {
 	0: {

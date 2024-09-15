@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr71rdlhtvatt"]
+[gd_scene load_steps=9 format=3 uid="uid://dr71rdlhtvatt"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_ibirw"]
 [ext_resource type="Texture2D" uid="uid://c6udppj8txigv" path="res://assets/Gamejam 2024 Weapon Pack.png" id="1_qiyed"]
+[ext_resource type="AudioStream" uid="uid://cf34evjjrgmki" path="res://audio/cowmoo.mp3" id="3_2xw36"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bejnd"]
 radius = 70.0
@@ -46,6 +47,7 @@ animations = [{
 }]
 
 [node name="gun" type="Area2D"]
+audio_bus_name = &""
 script = ExtResource("1_ibirw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -64,3 +66,7 @@ position = Vector2(4, 1)
 
 [node name="cooldown_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="bullet_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2xw36")
+volume_db = -11.608

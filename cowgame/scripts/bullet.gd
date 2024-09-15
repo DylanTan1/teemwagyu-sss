@@ -1,8 +1,8 @@
 extends Area2D
-
 var travelled_distance = 0
 var bullet_speed = 1000
-var bullet_range = 1200
+var bullet_range = 500
+
 
 func _physics_process(delta):
 	#get direction of the rotated bullet

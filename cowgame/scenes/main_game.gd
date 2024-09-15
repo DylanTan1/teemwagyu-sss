@@ -6,6 +6,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$GamestartMoo.play()
 	heartsContainer.setMaxHearts(player.max_health)
 	heartsContainer.updateHearts(player.current_health)
 	

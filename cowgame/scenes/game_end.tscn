@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://y2dpbg7jr5ml"]
+[gd_scene load_steps=4 format=3 uid="uid://y2dpbg7jr5ml"]
 
 [ext_resource type="Script" path="res://scripts/game_end.gd" id="1_h6ne8"]
+[ext_resource type="Texture2D" uid="uid://du5m64sanp5fa" path="res://assets/pikaso_texttoimage_Pixel-Cows-Cow-in-the-fields-dead-graveyard.png" id="2_ep3x3"]
+[ext_resource type="AudioStream" uid="uid://cu22eqf33c74b" path="res://audio/cows-on-pasture_animal-sound-149489.mp3" id="3_t7d8b"]
 
 [node name="game_end" type="Node2D"]
 script = ExtResource("1_h6ne8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 280)
+scale = Vector2(1.03472, 1)
+texture = ExtResource("2_ep3x3")
 
 [node name="start" type="Button" parent="."]
 offset_left = 448.0
@@ -19,6 +26,12 @@ offset_right = 704.0
 offset_bottom = 504.0
 text = "Quit"
 
+[node name="Panel" type="Panel" parent="."]
+offset_left = 272.0
+offset_top = 192.0
+offset_right = 880.0
+offset_bottom = 336.0
+
 [node name="Game Over" type="Label" parent="."]
 offset_left = 304.0
 offset_top = 192.0
@@ -29,6 +42,12 @@ theme_override_font_sizes/font_size = 2000
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t7d8b")
+autoplay = true
+playback_type = 1
+parameters/looping = true
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dx0dbp6hw0wxh"
+path="res://.godot/imported/audio-editor-output (1).mp3-72952bfd438e958f9f6308bf681661b6.mp3str"
+
+[deps]
+
+source_file="res://audio/audio-editor-output (1).mp3"
+dest_files=["res://.godot/imported/audio-editor-output (1).mp3-72952bfd438e958f9f6308bf681661b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

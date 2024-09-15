@@ -34,3 +34,4 @@ func shoot():
 	%shooting_point.add_child(new_bullet)
 	#firerate cd starts
 	$cooldown_timer.start(firerate)
+	$bullet_sound.play()

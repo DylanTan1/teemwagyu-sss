@@ -45,6 +45,7 @@ func lose_health(health: int) -> void:
 
 #TODO implement game start over
 func on_death():
+	$playerdeath.play()
 	get_tree().change_scene_to_file("res://scenes/game_end.tscn")
 
 #if player is near shopkeeper, can open shop
@@ -66,7 +67,7 @@ func _on_shopkeeper_area_exited():
 
 #Collision with enemy
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	print("hit")
+	$playerdeath.play()
 	if body.has_method("deal_damage"):
 		lose_health(body.deal_damage())
 		healthChanged.emit(current_health)
